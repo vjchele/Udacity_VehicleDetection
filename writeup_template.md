@@ -85,7 +85,9 @@ introducing the spatially binned and color histograms. I guess, the classifier w
 ### Video Implementation
 
 ####1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (somewhat wobbly or unstable bounding boxes are ok as long as you are identifying the vehicles most of the time with minimal false positives.)
-Here's a [link to my video result](./output.mp4)
+Here's a [link to my video result](./output_tweak.mp4)
+
+Also, here's a link to youtube video https://www.youtube.com/watch?v=8VJFUXrv53g
 
 
 ####2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
@@ -94,7 +96,7 @@ I recorded the positions of positive detections in each frame of the video.  Fro
 
 Here's an example result showing the heatmap from a series of frames of video, the result of `scipy.ndimage.measurements.label()` and the bounding boxes then overlaid on the last frame of video:
 
-### Here are six frames and their corresponding heatmaps:
+### Here are sample heatmaps:
 
 ![Heat map][image8]
 
@@ -108,6 +110,7 @@ Here's an example result showing the heatmap from a series of frames of video, t
 
 I had originally guessed that hog features along with color histograms and spatially binned spaces would have performed better. Only after lot of trial error, did I just 
 discover that hog features alone provide with a good accuracy. 
-The pipeline might fail in areas where there are shadows.
+I still have a few false positives, I am not entirely sure how to get rid of these false positives. Perhaps more training?
+The pipeline might fail in areas where there are shadows or when the car is driving in the right lane or on a single lane road.
 I do not have a complete understanding of the hog parameters and how to effectively identify a good set of parameters is something I would like to improve upon. Right now, my approach seems to be very random and unscientific   
 
