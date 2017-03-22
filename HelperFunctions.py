@@ -222,11 +222,17 @@ def search_windows(img, windows, clf, scaler, color_space='RGB',
         test_features = scaler.transform(np.array(features).reshape(1, -1))
         #6) Predict using your classifier
         prediction = clf.predict(test_features)
-        #7) If positive (prediction == 1) then save the window
-        if prediction == 1:
+        #7) Using Decision_function to get a confidence score
+        score = clf.decision_function(test_features)
+        print(prediction)
+        #8) If positive (prediction == 1) then save the window
+        if (prediction == 1 and score > 2):
             on_windows.append(window)
     #8) Return windows for positive detections
     return on_windows
+
+
+
 
 # Define a function to draw bounding boxes
 def draw_boxes(img, bboxes, color=(0, 0, 255), thick=6):

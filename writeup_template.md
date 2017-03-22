@@ -61,7 +61,8 @@ I finally settled with the Hog parameters.
 
 ####3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
-I trained a linear SVM using LinearSVC() function. The code for the classifier is in code cell 19 and lines of code are between 57 and 85
+I trained a linear SVM using LinearSVC() function. The code for the classifier is in code cell 19 and lines of code are between 57 and 85.
+I used a decision_function and used confidence score greater than 2 for positive predictions.
 
 ###Sliding Window Search
 
@@ -69,7 +70,7 @@ I trained a linear SVM using LinearSVC() function. The code for the classifier i
 
 I decided to lower half of the search space as cars do not appear in the sky. I used a y_start_stop variable to bound the search area. I set the search area parameter to 400 and 720 pixel values. This setting is noted in code cell 19, line number 14.
 The sliding window search is implemented was tested on a series of test images as noted in code cell 4, as noted in lines 10 - 20
-
+I tried using multiple windows (64,64), (96,96) and (128,128), but seems to slow the performance. I used an overlap of 0.75
 ![sliding window example][image4]
 
 ####2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
@@ -87,7 +88,7 @@ introducing the spatially binned and color histograms. I guess, the classifier w
 ####1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (somewhat wobbly or unstable bounding boxes are ok as long as you are identifying the vehicles most of the time with minimal false positives.)
 Here's a [link to my video result](./output_tweak.mp4)
 
-Also, here's a link to youtube video https://www.youtube.com/watch?v=8VJFUXrv53g
+Also, here's a link to youtube video https://youtu.be/91Ts95kpzS8
 
 
 ####2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
